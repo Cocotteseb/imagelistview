@@ -105,8 +105,10 @@ namespace Manina.Windows.Forms
         private RefreshDelegateInternal lazyRefreshCallback;
 
         // Layout variables
-        internal HScrollBar hScrollBar;
-        internal VScrollBar vScrollBar;
+        internal AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar hScrollBar;
+        internal AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar vScrollBar;
+        //internal HScrollBar hScrollBar;
+        //internal VScrollBar vScrollBar;
         internal ImageListViewLayoutManager layoutManager;
         private bool disposed;
 
@@ -1027,8 +1029,12 @@ namespace Manina.Windows.Forms
             mShowScrollBars = true;
 
             // Child controls
-            hScrollBar = new HScrollBar();
-            vScrollBar = new VScrollBar();
+            hScrollBar = new AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar();//HScrollBar();
+            hScrollBar.Orientation = AC.ExtendedRenderer.Toolkit.ScrollBar.ScrollBarOrientation.Horizontal;
+            vScrollBar = new AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar();
+            vScrollBar.Orientation = AC.ExtendedRenderer.Toolkit.ScrollBar.ScrollBarOrientation.Vertical;
+            //hScrollBar = new HScrollBar();
+            //vScrollBar = new VScrollBar();
             hScrollBar.Visible = false;
             vScrollBar.Visible = false;
             hScrollBar.Scroll += hScrollBar_Scroll;
@@ -1903,8 +1909,8 @@ namespace Manina.Windows.Forms
             if (ScrollOrientation == ScrollOrientation.VerticalScroll)
             {
                 int newYOffset = mViewOffset.Y - (e.Delta / SystemInformation.MouseWheelScrollDelta) * vScrollBar.SmallChange;
-                if (newYOffset > vScrollBar.Maximum - vScrollBar.LargeChange + 1)
-                    newYOffset = vScrollBar.Maximum - vScrollBar.LargeChange + 1;
+                if (newYOffset > vScrollBar.Maximum)// - vScrollBar.LargeChange + 1)
+                    newYOffset = vScrollBar.Maximum;// - vScrollBar.LargeChange + 1;
                 if (newYOffset < 0)
                     newYOffset = 0;
                 if (newYOffset < vScrollBar.Minimum)

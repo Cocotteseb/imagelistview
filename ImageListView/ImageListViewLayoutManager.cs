@@ -565,16 +565,17 @@ namespace Manina.Windows.Forms
                 else
                 {
                     mImageListView.vScrollBar.Minimum = 0;
-                    mImageListView.vScrollBar.Maximum = Math.Max(0, totalHeight - 1);
+            
                     if (!mImageListView.IntegralScroll)
                         mImageListView.vScrollBar.LargeChange = mItemAreaBounds.Height;
                     else
                         mImageListView.vScrollBar.LargeChange = mItemSizeWithMargin.Height * mDisplayedRows;
+                    mImageListView.vScrollBar.Maximum = Math.Max(0, totalHeight - 1) - mImageListView.vScrollBar.LargeChange;
                     mImageListView.vScrollBar.SmallChange = mItemSizeWithMargin.Height;
                 }
                 if (mImageListView.ViewOffset.Y > mImageListView.vScrollBar.Maximum - mImageListView.vScrollBar.LargeChange + 1)
                 {
-                    mImageListView.vScrollBar.Value = mImageListView.vScrollBar.Maximum - mImageListView.vScrollBar.LargeChange + 1;
+                  //  mImageListView.vScrollBar.Value = mImageListView.vScrollBar.Maximum - mImageListView.vScrollBar.LargeChange + 1;
                     mImageListView.ViewOffset = new Point(mImageListView.ViewOffset.X, mImageListView.vScrollBar.Value);
                 }
             }
