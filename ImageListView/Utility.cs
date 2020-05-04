@@ -224,7 +224,7 @@ namespace Manina.Windows.Forms
         {
             if (string.IsNullOrEmpty(text))
                 text = " ";
-            string txt = text.Substring(0, 1).ToUpperInvariant();
+            string txt = text;//.Substring(0, 1).ToUpperInvariant();
             int order = txt[0];
             return Tuple.Create(order, txt);
         }
