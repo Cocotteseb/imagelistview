@@ -44,7 +44,6 @@ namespace Manina.Windows.Forms
             private bool disposed;
             private bool creatingGraphics;
             private DateTime lastRenderTime;
-            private int textHeight;
             #endregion
 
             #region Properties
@@ -917,23 +916,8 @@ namespace Manina.Windows.Forms
             {
                 Size itemSize = new Size();
 
-                //OLD
-                //// Reference text height
-                //int textHeight = ImageListView.Font.Height;
-
-
                 // Reference text height
-                try
-                {
-                    textHeight = ImageListView.Font.Height;
-                }
-                catch (ArgumentException e)
-                {
-                    //ImageListView.Font = new Font(ImageListView.Font.Name, ImageListView.Font.Size, FontStyle.Regular);
-                    //textHeight = ImageListView.Font.Height;
-                }
-
-
+                int textHeight = ImageListView.Font.Height;
 
                 if (view == View.Details)
                 {

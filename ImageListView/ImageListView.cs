@@ -15,6 +15,7 @@
 //
 // Ozgur Ozcitak (ozcitak@yahoo.com)
 
+using JDHSoftware.Krypton.Toolkit.KryptonScrollbar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,8 +106,8 @@ namespace Manina.Windows.Forms
         private RefreshDelegateInternal lazyRefreshCallback;
 
         // Layout variables
-        internal AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar hScrollBar;
-        internal AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar vScrollBar;
+        internal KryptonScrollBar hScrollBar;
+        internal KryptonScrollBar vScrollBar;
         //internal HScrollBar hScrollBar;
         //internal VScrollBar vScrollBar;
         internal ImageListViewLayoutManager layoutManager;
@@ -1029,10 +1030,10 @@ namespace Manina.Windows.Forms
             mShowScrollBars = true;
 
             // Child controls
-            hScrollBar = new AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar();//HScrollBar();
-            hScrollBar.Orientation = AC.ExtendedRenderer.Toolkit.ScrollBar.ScrollBarOrientation.Horizontal;
-            vScrollBar = new AC.ExtendedRenderer.Toolkit.ScrollBar.KryptonScrollBar();
-            vScrollBar.Orientation = AC.ExtendedRenderer.Toolkit.ScrollBar.ScrollBarOrientation.Vertical;
+            hScrollBar = new KryptonScrollBar();
+            hScrollBar.Orientation = ScrollBarOrientation.Horizontal;
+            vScrollBar = new KryptonScrollBar();
+            vScrollBar.Orientation = ScrollBarOrientation.Vertical;
             //hScrollBar = new HScrollBar();
             //vScrollBar = new VScrollBar();
             hScrollBar.Visible = false;
